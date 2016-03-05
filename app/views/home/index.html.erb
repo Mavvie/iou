@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-    
+
     <head>
-        
-        <link rel="stylesheet" href="css/stylesheet.css">
-        
+
+        <%= stylesheet_link_tag 'home' %>
+
     </head>
 
     <body>
-        
-        <img class="logo" src="images/ioublue.png"s>
- 
+
+        <%= image_tag 'ioublue.png', class: 'logo' %>
+
         <h1 class="maintitle">THE BEST WAY TO SHARE EXPENSES BETWEEN FRIENDS.</h1>
-        
+
         <div class="signup">
-            <a href="Sign%20Up%20Page.html" class="btn_up btn_main red_btn main_btn">Sign Up</a>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "btn_up btn_main red_btn main_btn" %>
         </div>
-        
+
         <div class="signin">
-            <a href="Sign%20Up%20In,html" class="btn_in btn_main orange_btn main_btn">Sign In</a>
+            <%= link_to 'Sign In', new_user_session_path, class: "btn_in btn_main orange_btn main_btn" %>
         </div>
-        
+
     </body>
-    
+
     <footer>
-    
-      
-    
+
+
+
     </footer>
-    
+
 </html>

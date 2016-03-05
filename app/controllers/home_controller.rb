@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  layout 'home_template'
+  layout false
   def index
     if current_user
       if current_user.groups.any?
