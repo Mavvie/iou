@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160305171842) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160305171842) do
     t.integer "group_id"
   end
 
-  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id"
-  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id"
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.decimal  "amount"
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160305171842) do
     t.date     "due_date"
   end
 
-  add_index "payments", ["receiver_id"], name: "index_payments_on_receiver_id"
-  add_index "payments", ["sender_id"], name: "index_payments_on_sender_id"
+  add_index "payments", ["receiver_id"], name: "index_payments_on_receiver_id", using: :btree
+  add_index "payments", ["sender_id"], name: "index_payments_on_sender_id", using: :btree
 
   create_table "transfers", force: :cascade do |t|
     t.decimal  "amount"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160305171842) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "transfers", ["payment_id"], name: "index_transfers_on_payment_id"
+  add_index "transfers", ["payment_id"], name: "index_transfers_on_payment_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -67,7 +70,8 @@ ActiveRecord::Schema.define(version: 20160305171842) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "transfers", "payments"
 end
