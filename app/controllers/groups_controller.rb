@@ -22,4 +22,15 @@ class GroupsControl < ApplcationControl
   def add_user
     @group.users << User.find(params[:user_id])
   end
+
+  def remove_user
+    @user = User.find(params[:user_id])
+    @group = user.groups.find(params[:group_id])
+    if group
+      user.groups.delete(group)
+    else
+      flash[:danger] = 'Could not remove user from group'
+      render(:new)
+    end
+  end
 end
