@@ -1,0 +1,44 @@
+<div class="pull-right"><%= link_to '+ Payment', new_payment_path, class: 'btn btn-primary' %></div>
+<h1>Sent Payments</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sent_payments.each do |payment| %>
+      <tr>
+        <td><%= payment.receiver.name %></td>
+        <td><%= number_to_currency payment.amount %></td>
+        <td><%= payment.status %></td>
+        <td><%= payment.created_at.to_s(:best_date) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Received Payments</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @received_payments.each do |payment| %>
+      <tr>
+        <td><%= payment.sender.name %></td>
+        <td><%= number_to_currency payment.amount %></td>
+        <td><%= payment.status %></td>
+        <td><%= payment.created_at.to_s(:best_date) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

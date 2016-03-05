@@ -1,0 +1,11 @@
+<%= form_for(@payment) do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </fieldset>
+
+<% end %>
