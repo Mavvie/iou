@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   end
   layout :layout_by_resource
 
+  before_filter :update_sanitized_params, if: :devise_controller?
+
 protected
   def layout_by_resource
     if devise_controller?
@@ -18,5 +20,9 @@ protected
     else
       "dashboard"
     end
+  end
+
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name)}
   end
 end
