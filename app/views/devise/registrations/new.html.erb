@@ -13,26 +13,23 @@
       <div class="main-login-form">
         <div class="login-group">
           <div class="form-group">
-            <label for="reg_username" class="sr-only"></label>
-            <input type="text" class="form-control" id="reg_username" name="user[username]" placeholder="username">
+            <label for="reg_fullname" class="sr-only"></label>
+            <input type="text" class="form-control" id="reg_fullname" name="user[name]" placeholder="full name" required>
+          </div>
+          <div class="form-group">
+            <label for="reg_email" class="sr-only"></label>
+            <input type="email" class="form-control" id="reg_email" name="user[email]" placeholder="email" required>
           </div>
           <div class="form-group">
             <label for="reg_password" class="sr-only"></label>
-            <input type="password" class="form-control" id="reg_password" name="user[password]" placeholder="password">
+            <input type="password" class="form-control" id="reg_password" name="user[password]" placeholder="password" required>
           </div>
           <div class="form-group">
             <label for="reg_password_confirm" class="sr-only"></label>
-            <input type="password" class="form-control" id="reg_password_confirm" name="user[password]" placeholder="confirm password">
+            <input type="password" class="form-control" id="reg_password_confirm" name="user[password_confirmation]" placeholder="confirm password" required>
           </div>
           
-          <div class="form-group">
-            <label for="reg_email" class="sr-only"></label>
-            <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-          </div>
-          <div class="form-group">
-            <label for="reg_fullname" class="sr-only"></label>
-            <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-          </div>
+          
            </div>
           <button type="submit" class="login-button"><%= render "devise/shared/links" %><i class="fa fa-chevron-right"></i></button>
        
