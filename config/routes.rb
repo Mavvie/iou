@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get :dashboard, to: 'home#dashboard'
 
-  resources :payments
+  resources :payments do
+    resources :transfers
+  end
 end

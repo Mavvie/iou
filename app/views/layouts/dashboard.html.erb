@@ -124,14 +124,11 @@
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
-                  <li class="active">
-                      <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                  </li>
                   <li>
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-out"></i> Sent payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="sent-payment-dropdown">
                           <% current_user.sent_payments.each do |payment| %>
-                            <li>
+                            <li class="<%= active_class_for(payment) %>">
                               <%= link_to payment do%>
                                 <%= payment.sender.name %> - <%= number_to_currency payment.amount %></a>
                               <% end %>
@@ -143,13 +140,18 @@
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-in"></i> Received payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="received-payment-dropdown">
                           <% current_user.received_payments.each do |payment| %>
-                            <li>
+                            <li class="<%= active_class_for(payment) %>">
                               <%= link_to payment do%>
                                 <%= payment.sender.name %> - <%= number_to_currency payment.amount %></a>
                               <% end %>
                             </li>
                           <% end %>
                       </ul>
+                  </li>
+                  <li class="<%= active_class_for(:payments) %>">
+                      <%= link_to :payments do %>
+                        <i class="fa fa-fw fa-dashboard"></i> All payments
+                      <% end %>
                   </li>
               </ul>
           </div>

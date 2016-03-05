@@ -1,1 +1,1 @@
-Time::DATE_FORMATS[:posts] = "%B %d, %Y"
+Time::DATE_FORMATS[:nice_date] = "%B %d, %Y"

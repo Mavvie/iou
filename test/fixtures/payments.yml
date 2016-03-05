@@ -3,15 +3,18 @@ payment_one:
   description: Pizza Bill
   sender: bob
   receiver: tyler
+  due_date: <%= Time.now - 1.weeks %>
 
 payment_two:
   amount: 29.99
   description: Dank meme loan
   sender: tyler
   receiver: andrew
+  due_date: <%= Time.now + 1.week %>
 
 payment_three:
   amount: 15.00
   description: Dank meme interest
   sender: andrew
   receiver: bob
+  due_date: <%= Time.now + 2.weeks %>

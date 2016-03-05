@@ -1,21 +1,59 @@
 <div class="row">
   <div class="col-md-8">
-    <h1><%= @payment.description %></h1>
-    <div class="row">
-      <div class="col-md-3"><h4>Owe</h4></div>
+    <h1>
+      <%= @payment.description %>&emsp;
+      <span class="label <%= label_status_class(@payment.status) %>"><%= @payment.status %></span>
+    </h1>
+    <div class="row m-t-3">
+      <div class="col-md-3"><h4>Total</h4></div>
       <div class="col-md-3">
         <div class="input-group">
           <div class="input-group-addon">$</div>
-          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-          <div class="input-group-addon">.00</div>
+          <input type="text" class="form-control disabled" disabled value="<%= @payment.amount %>">
         </div>
       </div>
     </div>
+    <div class="row m-t-3">
+      <div class="col-md-3"><h4>Paid</h4></div>
+      <div class="col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control disabled" disabled value="<%= @payment.amount_paid %>">
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-3">
+      <div class="col-md-3"><h4>Owed</h4></div>
+      <div class="col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control disabled" disabled value="<%= @payment.amount_unpaid %>">
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-2">
+      <div class="col-md-3"><h4>Due</h4></div>
+      <div class="col-md-9"><h4><%= @payment.due_date.strftime("%B %d, %Y") %></h4></div>
+    </div>
+    <% if current_user == @payment.sender && @payment.status != 'paid' %>
+      <div class="row m-t-1">
+        <div class="col-md-9 col-md-offset-3">
+          <%= link_to new_payment_transfer_path(@payment), class: 'btn btn-lg btn-primary' do %>
+          <i class="fa fa-money"></i> Pay
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="col-md-4">
     <h2>History</h2>
+    <ul>
+      <% @payment.transfers.each do |transfer| %>
+        <li>
+          <span class="badge"><%= transfer.created_at.strftime("%B %d, %Y") %></span>&nbsp;
+          <h4 style="display: inline;"> Paid <%= transfer.amount %></h4>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <% 100.times do %>
-    <br>
-  <% end %>
 </div>

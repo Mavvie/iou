@@ -1,4 +1,9 @@
 payment_two_transfer:
   amount: 29.99
   transfer_method: cash
-  payment: payment_tow
+  payment: payment_two
+
+payment_three_transfer:
+  amount: 10
+  transfer_method: cash
+  payment: payment_three
