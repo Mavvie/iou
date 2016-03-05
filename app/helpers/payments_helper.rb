@@ -3,7 +3,7 @@ module PaymentsHelper
     case status
     when 'unpaid'
       'label-danger'
-    when 'partially-paid'
+    when 'partially_paid'
       'label-warning'
     when 'paid'
       'label-success'

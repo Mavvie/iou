@@ -1,6 +1,5 @@
 class PaymentsController < ApplicationController
   load_and_authorize_resource :payment
-  layout 'dashboard'
 
   def index
     @sent_payments = current_user.sent_payments
@@ -8,6 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
+    @payment.assign_attributes((payment_params rescue {}))
   end
 
   def create
@@ -20,6 +20,6 @@ class PaymentsController < ApplicationController
 
 private
   def payment_params
-    params.require(:payment).permit(:description, :amount, :receiver_id, :sender_id)
+    params.require(:payment).permit(:description, :amount, :receiver_id, :sender_id, :due_date)
   end
 end

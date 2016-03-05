@@ -127,10 +127,10 @@
                   <li>
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-out"></i> Sent payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="sent-payment-dropdown">
-                          <% current_user.sent_payments.each do |payment| %>
+                          <% current_user.sent_payments.unpaid.each do |payment| %>
                             <li class="<%= active_class_for(payment) %>">
                               <%= link_to payment do%>
-                                <%= payment.sender.name %> - <%= number_to_currency payment.amount %></a>
+                                <%= payment.receiver.name %> - <%= number_to_currency payment.amount %></a>
                               <% end %>
                             </li>
                           <% end %>
@@ -139,7 +139,7 @@
                   <li>
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-in"></i> Received payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="received-payment-dropdown">
-                          <% current_user.received_payments.each do |payment| %>
+                          <% current_user.received_payments.unpaid.each do |payment| %>
                             <li class="<%= active_class_for(payment) %>">
                               <%= link_to payment do%>
                                 <%= payment.sender.name %> - <%= number_to_currency payment.amount %></a>

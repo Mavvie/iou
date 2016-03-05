@@ -1,0 +1,21 @@
+<%= form_for([@payment, @transfer]) do |f| %>
+  <div class="form-group">
+    <%= render 'shared/error_messages', obj: @transfer %>
+  </div>
+  <div class="form-group row">
+  <fieldset class="form-group m-t-2">
+    <%= f.label :amount %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :amount, class: 'form-control', step: '0.01', placeholder: '12.00', value: @payment.amount_unpaid %>
+    </div>
+  </fieldset>
+  <div class="form-group m-t-2">
+    <%= f.label :transfer_method %>
+    <%= f.text_field :transfer_method, class: 'form-control', placeholder: 'cash', value: 'cash' %>
+  </div>
+  <fieldset class="form-group">
+    <%= f.submit 'Save payment', class: 'btn btn-primary' %>
+  </fieldset>
+
+<% end %>

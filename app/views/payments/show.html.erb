@@ -51,7 +51,7 @@
       <% @payment.transfers.each do |transfer| %>
         <li>
           <span class="badge"><%= transfer.created_at.strftime("%B %d, %Y") %></span>&nbsp;
-          <h4 style="display: inline;"> Paid <%= transfer.amount %></h4>
+          <h4 style="display: inline;"> Paid <%= number_to_currency transfer.amount %></h4>
         </li>
       <% end %>
     </ul>

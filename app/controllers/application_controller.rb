@@ -13,8 +13,10 @@ protected
   def layout_by_resource
     if devise_controller?
       "login"
-    else
+    elsif params[:controller] == 'home'
       "application"
+    else
+      "dashboard"
     end
   end
 end

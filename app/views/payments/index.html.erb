@@ -16,16 +16,16 @@
         <tr>
           <td><%= payment.receiver.name %></td>
           <td><%= number_to_currency payment.amount %></td>
-          <td><%= payment.status %></td>
+          <td><span class="label <%= label_status_class(payment.status) %>"><%= payment.status %></span></td>
           <td><%= payment.created_at.strftime("%B %d, %Y") %></td>
-          <td><%= link_to 'View', payment, class: 'btn btn-primary btn-sm' %></td>
+          <td><%= link_to 'View', payment, class: 'btn btn-default btn-sm' %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
   <div class="col-md-6">
-    <h1>Received Payments</h1>
+    <h1>Received Payments <%= link_to 'Get money', new_payment_path(payment: {receiver_id: current_user.id}), class: 'btn btn-primary btn-lg pull-right' %></h1>
     <table class="table">
       <thead>
         <tr>
@@ -41,9 +41,9 @@
         <tr>
           <td><%= payment.sender.name %></td>
           <td><%= number_to_currency payment.amount %></td>
-          <td><%= payment.status %></td>
+          <td><span class="label <%= label_status_class(payment.status) %>"><%= payment.status %></span></td>
           <td><%= payment.created_at.strftime("%B %d, %Y") %></td>
-          <td><%= link_to 'View', payment, class: 'btn btn-primary btn-sm' %></td>
+          <td><%= link_to 'View', payment, class: 'btn btn-default btn-sm' %></td>
         </tr>
         <% end %>
       </tbody>
