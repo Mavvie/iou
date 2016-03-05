@@ -1,10 +1,15 @@
 @import "font-awesome";
 
+@font-face {
+    font-family: HKGrotesk-Regular;
+    src: font-url('HKGrotesk-Regular.otf');
+}
+
 html,
 body {
   background: #efefef;
   padding: 10px;
-  font-family: 'Varela Round';
+  font-family: 'HKGrotesk-Regular';
 }
 .text-center{
     position: absolute;
@@ -22,6 +27,7 @@ input {
 
 input,
 input::-webkit-input-placeholder {
+  font-family: 'HKGrotesk-Regular';
     font-size: 20px;
     line-height: 2;
 
