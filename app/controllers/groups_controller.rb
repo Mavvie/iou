@@ -4,15 +4,21 @@
 =end
 
 class GroupsController < ApplcationController
+  @@url = "localhost:3000"
+
   def new_user
     @user = User.new
+    if user.valid
+      flash[:success] = 'User created successfully'
+      redirect_to :payments
   end
 
   def create
     @group = current_user.groups.create(name: params[:group][:name])
     if @group.valid?
       flash[:success] = 'Group created successfully'
-      # redirect_to
+      group_generate = URI::HTTP.build(:host => url, :path => '#{params[:group][:group_id]}')
+      redirect_to group_generate
     else
       flash[:danger] = 'Group failed to create'
       render(:new)
