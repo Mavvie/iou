@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305044000) do
+ActiveRecord::Schema.define(version: 20160305064143) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160305044000) do
     t.string   "status",      default: "unpaid", null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.text     "description"
   end
 
   add_index "payments", ["receiver_id"], name: "index_payments_on_receiver_id"
