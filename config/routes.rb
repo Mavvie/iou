@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :transfers
   end
 
-  resources :groups do |t|
+  resources :groups do
   	member do
+      get :new_user
       post :add_user
       post :remove_user
     end
