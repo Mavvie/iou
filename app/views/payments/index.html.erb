@@ -1,44 +1,52 @@
-<div class="pull-right"><%= link_to '+ Payment', new_payment_path, class: 'btn btn-primary' %></div>
-<h1>Sent Payments</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>To</th>
-      <th>Amount</th>
-      <th>Status</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sent_payments.each do |payment| %>
-      <tr>
-        <td><%= payment.receiver.name %></td>
-        <td><%= number_to_currency payment.amount %></td>
-        <td><%= payment.status %></td>
-        <td><%= payment.created_at.to_s(:best_date) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Received Payments</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>Amount</th>
-      <th>Status</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @received_payments.each do |payment| %>
-      <tr>
-        <td><%= payment.sender.name %></td>
-        <td><%= number_to_currency payment.amount %></td>
-        <td><%= payment.status %></td>
-        <td><%= payment.created_at.to_s(:best_date) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <h1>Sent Payments <%= link_to 'Send money', new_payment_path(payment: {sender_id: current_user.id}), class: 'btn btn-primary btn-lg pull-right' %></h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>To</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sent_payments.each do |payment| %>
+        <tr>
+          <td><%= payment.receiver.name %></td>
+          <td><%= number_to_currency payment.amount %></td>
+          <td><span class="label <%= label_status_class(payment.status) %>"><%= payment.status %></span></td>
+          <td><%= payment.created_at.strftime("%B %d, %Y") %></td>
+          <td><%= link_to 'View', payment, class: 'btn btn-default btn-sm' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h1>Received Payments <%= link_to 'Get money', new_payment_path(payment: {receiver_id: current_user.id}), class: 'btn btn-primary btn-lg pull-right' %></h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @received_payments.each do |payment| %>
+        <tr>
+          <td><%= payment.sender.name %></td>
+          <td><%= number_to_currency payment.amount %></td>
+          <td><span class="label <%= label_status_class(payment.status) %>"><%= payment.status %></span></td>
+          <td><%= payment.created_at.strftime("%B %d, %Y") %></td>
+          <td><%= link_to 'View', payment, class: 'btn btn-default btn-sm' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

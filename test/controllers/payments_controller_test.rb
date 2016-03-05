@@ -22,10 +22,16 @@ class PaymentsControllerTest < ActionController::TestCase
         description: "No Kappa",
         amount: 10,
         sender_id: tyler.id,
-        receiver_id: bob.id
+        receiver_id: bob.id,
+        due_date: '2016-03-20'
       }
     end
     payment = Payment.last
+    assert_equal 'No Kappa', payment.description
+    assert_equal 10, payment.amount
+    assert_equal tyler, payment.sender
+    assert_equal bob, payment.receiver
+    assert_equal Date.new(2016, 03, 20), payment.due_date
     assert_redirected_to payment
   end
 end

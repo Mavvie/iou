@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
+    @payment.assign_attributes((payment_params rescue {}))
   end
 
   def create
@@ -14,8 +15,11 @@ class PaymentsController < ApplicationController
     respond_with @payment
   end
 
+  def show
+  end
+
 private
   def payment_params
-    params.require(:payment).permit(:description, :amount, :receiver_id, :sender_id)
+    params.require(:payment).permit(:description, :amount, :receiver_id, :sender_id, :due_date)
   end
 end
