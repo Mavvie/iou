@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   end
 
   def dashboard
+    render :dashboard, layout: 'dashboard'
   end
 end

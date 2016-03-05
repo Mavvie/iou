@@ -1,14 +1,17 @@
 payment_one:
   amount: 9.99
+  description: Pizza Bill
   sender: bob
   receiver: tyler
 
 payment_two:
   amount: 29.99
+  description: Dank meme loan
   sender: tyler
   receiver: andrew
 
 payment_three:
   amount: 15.00
+  description: Dank meme interest
   sender: andrew
   receiver: bob

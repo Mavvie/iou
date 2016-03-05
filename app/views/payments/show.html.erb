@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1><%= @payment.description %></h1>
+    <div class="row">
+      <div class="col-md-3"><h4>Owe</h4></div>
+      <div class="col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+          <div class="input-group-addon">.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>History</h2>
+  </div>
+  <% 100.times do %>
+    <br>
+  <% end %>
+</div>

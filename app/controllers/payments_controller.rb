@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   load_and_authorize_resource :payment
+  layout 'dashboard'
 
   def index
     @sent_payments = current_user.sent_payments
@@ -12,6 +13,9 @@ class PaymentsController < ApplicationController
   def create
     @payment.save
     respond_with @payment
+  end
+
+  def show
   end
 
 private
