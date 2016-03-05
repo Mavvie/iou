@@ -6,4 +6,12 @@ Rails.application.routes.draw do
   resources :payments do
     resources :transfers
   end
+
+  resources :groups do
+  	member do
+      get :new_user
+      post :add_user
+      post :remove_user
+    end
+  end
 end

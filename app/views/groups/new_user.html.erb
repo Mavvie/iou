@@ -1,0 +1,9 @@
+<h1>Add user to <%= @group.name %></h1>
+<%= form_tag add_user_group_path(@group) do %>
+  <fieldset class="form-group">
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, "id", "name"), {include_blank: "Choose", class: 'form-control'} %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= submit_tag 'Add', class: 'btn btn-primary' %>
+  </fieldset>
+<% end %>
