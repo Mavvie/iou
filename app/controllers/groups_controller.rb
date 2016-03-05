@@ -5,14 +5,14 @@
 
 class GroupsControl < ApplcationControl
   def new_user
-    @@user = User.new
-  end	
+    @user = User.new
+  end
 
   def create
     @group = current_user.groups.create(name: params[:group][:name])
     if @group.valid?
       flash[:success] = 'Group created successfully'
-      # redirect_to 
+      # redirect_to
     else
       flash[:danger] = 'Group failed to create'
       render(:new)
