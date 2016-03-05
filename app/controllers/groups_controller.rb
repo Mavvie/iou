@@ -3,7 +3,7 @@
   add redircts for success
 =end
 
-class GroupsControl < ApplcationControl
+class GroupsController < ApplcationController
   def new_user
     @user = User.new
   end
