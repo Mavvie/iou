@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# RatyRate; rating system for users and timeliness
+gem 'ratyrate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -26,6 +28,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan'
 gem 'font-awesome-rails'
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

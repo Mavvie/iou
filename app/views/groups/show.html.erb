@@ -6,6 +6,7 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Rating</th>
       </tr>
     </thead>
     <tbody>
@@ -13,8 +14,16 @@
         <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
+          <td><%= rating_for user, "Overall" %></td>
         </tr>
       <% end %>
+
+      <!-- Style for user ratings on the 'show group' page -->
+      <div class="rating">
+        <% if current_user %>
+          Overall: <%= rating_for current_user, "Overall", disable_after_rate: false, cancel_hint: 'Cancel this vote!' %>
+        <% end %>
+      </div>
     </tbody>
   </table>
 </div>
