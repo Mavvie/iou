@@ -49,7 +49,7 @@
     <h2>History</h2>
     <ul>
       <% @payment.transfers.each do |transfer| %>
-        <li>
+        <li style="list-style-type: none">
           <span class="badge"><%= transfer.created_at.strftime("%B %d, %Y") %></span>&nbsp;
           <h4 style="display: inline;"> Paid <%= number_to_currency transfer.amount %></h4>
         </li>

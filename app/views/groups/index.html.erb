@@ -1,6 +1,7 @@
 <h1>Your groups <%= link_to '+ Group', new_group_path, class: 'btn btn-primary' %></h1>
 <ul>
   <% @groups.each do |group| %>
-    <li><%= link_to group.name, group %></li>
+    <li style="list-style-type: none"><%= link_to group.name, group %></li>
+    <hr style = "border-top: 1px solid #ccc">
   <% end %>
 </ul>
