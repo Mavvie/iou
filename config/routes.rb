@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       post :remove_user
     end
   end
+
+  resource :bill_splitting, controller: 'bill_splitting'
 end

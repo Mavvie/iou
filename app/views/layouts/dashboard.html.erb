@@ -158,6 +158,11 @@
                         <i class="fa fa-fw fa-group"></i> Groups
                       <% end %>
                   </li>
+                  <li class="<%= active_class_for([:new, :bill_splitting]) %>">
+                      <%= link_to [:new, :bill_splitting] do %>
+                        <i class="fa fa-fw fa-plus"></i> Split a bill
+                      <% end %>
+                  </li>
               </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -166,7 +171,11 @@
       <div id="page-wrapper">
 
           <div class="container-fluid">
-
+              <% flash.each do |key, msg| %>
+                <div class="alert alert-<%= key %>">
+                  <%= msg %>
+                </div>
+              <% end %>
               <%= yield %>
 
           </div>
