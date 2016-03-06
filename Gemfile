@@ -28,6 +28,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan'
 gem 'font-awesome-rails'
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
