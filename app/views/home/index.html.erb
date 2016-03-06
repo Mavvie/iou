@@ -9,25 +9,22 @@
     </head>
 
     <body>
-
-        <%= image_tag 'ioublue.png', class: 'logo' %>
-
+      <div class="container">
+        <div class="crop">
+          <%= image_tag 'ioublue.png', class: 'logo' %>
+        </div>
+      </div>
+      <div class="container">
         <h1 class="maintitle">THE BEST WAY TO SHARE EXPENSES BETWEEN FRIENDS.</h1>
 
-        <div class="signup">
-            <%= link_to 'Sign Up', new_user_registration_path, class: "btn_up btn_main red_btn main_btn" %>
-        </div>
-
+      </div>
+      <div class="container">
         <div class="signin">
-            <%= link_to 'Sign In', new_user_session_path, class: "btn_in btn_main orange_btn main_btn" %>
+          <%= link_to 'Sign In', new_user_session_path, class: "btn_in btn_main orange_btn main_btn" %>
+        </div>&emsp;
+        <div class="signup">
+          <%= link_to 'Sign Up', new_user_registration_path, class: "btn_up btn_main red_btn main_btn" %>
         </div>
-
+      </div>
     </body>
-
-    <footer>
-
-
-
-    </footer>
-
 </html>
