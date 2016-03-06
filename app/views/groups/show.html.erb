@@ -21,7 +21,7 @@
       <!-- Style for user ratings on the 'show group' page -->
       <div class="rating">
         <% if current_user %>
-          Overall: <%= rating_for current_user, "Overall" %>
+          Overall: <%= rating_for current_user, "Overall", disable_after_rate: false, cancel_hint: 'Cancel this vote!' %>
         <% end %>
       </div>
     </tbody>
