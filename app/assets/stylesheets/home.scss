@@ -11,13 +11,25 @@ html {
   background-size: cover;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
 
 .main_btn {
-    margin-bottom: 0px;
     font-size: 1em;
     display: inline-block;
-    margin-left: 2px;
-    margin-right: 2px
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .btn:hover, .btn:active, .btn:visited, .btn:focus {
@@ -61,10 +73,7 @@ a.btn_main{
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    position:absolute;
     transition: .5s ease;
-    top: 65%;
-    left: 50%;
 }
 
 .btn_in {
@@ -78,11 +87,7 @@ a.btn_main{
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    position:absolute;
     transition: .5s ease;
-    top: 65%;
-    left: 30%;
-
 }
 
 a {
@@ -98,21 +103,25 @@ a {
     font-weight: 600;
     letter-spacing: 0.5px;
     line-height: 42px;
-    position:absolute;
     transition: .5s ease;
-    top: 53%;
-    left: 18%;
+}
+
+
+.crop {
+    overflow: hidden;
+}
+
+.crop img {
+    width: 500px;
+    height: 500px;
+    margin: 0 0 -100px;
 }
 
 .logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    align-self: center;
     transition: .5s ease;
-    top: 50%;
-    margin-bottom: 200px;
-    margin-top: 130px;
-    width: 350px;
+    display: flex;
+    overflow: hidden;
 }
 
 a:hover {
