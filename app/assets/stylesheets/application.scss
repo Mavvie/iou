@@ -9,7 +9,10 @@
  */
 
 /* Global Styles */
-
+@font-face {
+    font-family: HKGrotesk-Bold;
+    src: font-url('HKGrotesk-Bold.otf');
+}
 body {
     margin-top: 100px;
     background-color: #3EC1D3;
