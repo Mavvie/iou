@@ -7,16 +7,20 @@
 
 html,
 body {
-  background: #efefef;
+  background: #f6f7d7;
   padding: 10px;
   font-family: 'HKGrotesk-Regular';
 }
 .text-center{
-    position: absolute;
-    top: 30%;
-    left: 45%;
-    margin-top: -50px;
-    margin-left: -50px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    display: block;
+    width: 20%;
+
 
 }​
 input {
@@ -30,6 +34,9 @@ input::-webkit-input-placeholder {
   font-family: 'HKGrotesk-Regular';
     font-size: 20px;
     line-height: 2;
+
+}
+.login-form-1{
 
 }
 .login-form-1 .login-button:hover {
@@ -104,7 +111,7 @@ a:hover {
   border-radius: 8px;
   padding: 10px 20px;
   width: 80%;
-  height: 200%;
+  /*height: 200%;*/
 
 }
 .login-group-checkbox {
@@ -284,8 +291,8 @@ label:hover:before {
 }
 .logo {
   padding: 15px 0;
-  font-size: 25px;
-  color: #aaaaaa;
+  font-size: 60px;
+  color: #3EC1D3;
   font-weight: bold;
 }
 
