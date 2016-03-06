@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <h1>Split a bill</h1>
+  <%= form_tag :bill_splitting do %>
+    <fieldset class="form-group">
+      <%= label_tag :group %>
+      <%= select_tag :group_id, options_from_collection_for_select(Group.all, "id", "name"), class: 'form-control' %>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= label_tag :amount %>
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <%= number_field_tag :amount, nil, class: 'form-control', step: '0.01' %>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= label_tag :description %>
+      <%= text_field_tag 'payment[description]', nil, class: 'form-control', placeholder: "Hydro bill" %>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= label_tag :due_date %>
+      <%= date_field_tag 'payment[due_date]', nil, class: 'form-control', value: 1.week.from_now.strftime('%Y-%m-%d')%>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= submit_tag 'Submit bill', class: 'btn btn-primary' %>
+    </fieldset>
+  <% end %>
+</div>

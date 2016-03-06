@@ -4,12 +4,13 @@ class BillSplittingController < ApplicationController
   end
 
   def create
-    @balance = params["invoice"]["invoice_balance"]
-    @indv_balance = balance / group.users.size
-    group.users.each do |user|
+    @group = current_user.groups.find(params[:group_id])
+    balance = params[:amount].to_f / @group.users.size
+
+    @group.users.each do |user|
       next if user == current_user
-      user.sent_payments.create(payment_params).tap do |payment|
-        payment.amount = indv_balance
+      user.sent_payments.create!(payment_params) do |payment|
+        payment.amount = balance
         payment.receiver = current_user
       end
     end
