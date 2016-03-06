@@ -116,7 +116,9 @@
                       </li>
                       <li class="divider"></li>
                       <li>
-                          <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <%= link_to destroy_user_session_path, method: :delete do %>
+                            <i class="fa fa-fw fa-power-off"></i> Log Out
+                        <% end %>
                       </li>
                   </ul>
               </li>
