@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# RatyRate; rating system for users and timeliness
+gem 'ratyrate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'

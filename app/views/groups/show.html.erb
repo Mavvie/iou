@@ -15,6 +15,13 @@
           <td><%= user.email %></td>
         </tr>
       <% end %>
+
+      <!-- Style for user ratings on the 'show group' page -->
+      <!-- <div class="rating">
+        <% if current_user %>
+          Overall: <%= rating_for @user, "Overall" %>
+        <% end %>
+      </div> -->
     </tbody>
   </table>
 </div>
