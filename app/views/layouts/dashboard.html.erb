@@ -124,7 +124,7 @@
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
-                  <li>
+                  <li class="fuck">
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-out"></i> Sent payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="sent-payment-dropdown">
                           <% current_user.sent_payments.unpaid.each do |payment| %>
@@ -136,7 +136,7 @@
                           <% end %>
                       </ul>
                   </li>
-                  <li>
+                  <li class="fuck">
                       <a href="javascript:;"><i class="fa fa-fw fa-sign-in"></i> Received payments <i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="received-payment-dropdown">
                           <% current_user.received_payments.unpaid.each do |payment| %>
@@ -148,17 +148,17 @@
                           <% end %>
                       </ul>
                   </li>
-                  <li class="<%= active_class_for(:payments) %>">
+                  <li class="fuck <%= active_class_for(:payments) %>">
                       <%= link_to :payments do %>
                         <i class="fa fa-fw fa-dashboard"></i> All payments
                       <% end %>
                   </li>
-                  <li class="<%= active_class_for(:groups) %>">
+                  <li class="fuck <%= active_class_for(:groups) %>">
                       <%= link_to :groups do %>
                         <i class="fa fa-fw fa-group"></i> Groups
                       <% end %>
                   </li>
-                  <li class="<%= active_class_for([:new, :bill_splitting]) %>">
+                  <li class="fuck <%= active_class_for([:new, :bill_splitting]) %>">
                       <%= link_to [:new, :bill_splitting] do %>
                         <i class="fa fa-fw fa-plus"></i> Split a bill
                       <% end %>

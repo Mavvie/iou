@@ -12,7 +12,8 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #3EC1D3;
+    font-family: 'HKGrotesk-Bold', sans-serif;
 }
 
 @media(min-width:768px) {
@@ -28,7 +29,7 @@ body {
 #page-wrapper {
     width: 100%;
     padding: 0;
-    background-color: #fff;
+    background-color: #F6F7d7;
     min-height: 600px;
 }
 
@@ -62,7 +63,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: white;
 }
 
 .top-nav>li>a:hover,
@@ -71,7 +72,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #000;
+    background-color: #3EC1D3;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -127,7 +128,8 @@ ul.alert-dropdown {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #222;
+        background-color: #3EC1D3;
+        border-color: #3EC1D3;
         bottom: 0;
         overflow-x: hidden;
         padding-bottom: 40px;
@@ -243,4 +245,37 @@ ul.alert-dropdown {
 
 li.active {
   background: black;
+}
+
+.navbar-inverse .navbar-collapse {
+    background-color: #3EC1D3;
+    border-color: #3EC1D3;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.btn-primary {
+    background-color: #FF165D;
+    box-shadow: 0px 5px 0px #000;
+    border-color: #ff165d;
+    &:hover {
+        background-color: lighten(#FF165D, 10%);
+    } 
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > li:hover, .navbar-inverse .navbar-nav > li:focus {
+    color: #fff;
+    background-color: lighten(#3EC1D3, 10%);
+}
+
+li.fuck {
+    &:hover, &:focus, a:hover, a:focus {
+        background-color: lighten(#3EC1D3, 5%) !important;
+    }
 }
